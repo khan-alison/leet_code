@@ -2,31 +2,32 @@ class Solution(object):
     def longestPalindrome(self, s):
 
         if s == s[::-1]:
-            return s
+          return s
 
-        c = len(s)-1
-        cenLeft, cenRight = 0, 0
         pal = s[0]
+        centerL = 0
+        centerR = 0
+        c = len(s) - 1
 
-        while cenRight < c:
-            while cenRight < c:
-                if s[cenRight] != s[cenRight + 1]:
-                    break
-                cenRight = cenRight + 1
-            i, j = cenLeft, cenRight
-            while i > 0 and j < c:
-                if s[i - 1] != s[j + 1]:
-                    break
-                i -= 1
-                j += 1
-            if len(pal) < j + 1 - i:
-                pal = s[i:j+1]
-            cenRight = cenRight + 1
-            cenLeft = cenRight
+        while centerR < c:
+          while centerR < c:
+            if s[centerR] != s[centerR + 1]: break
+            centerR += 1
+          i, j = centerL, centerR
+          while i > 0 and j < c:
+            if s[i - 1] != s[j + 1]: break
+            i -= 1
+            j += 1
+          
+          if len(pal) < j - i + 1:
+            pal = s[i:j+1]
+
+          centerR += 1
+          centerL = centerR
         return pal
 
 
-s = "babad"
+s = "cbbd"
 solution = Solution()
 result = solution.longestPalindrome(s)
 print(result)
