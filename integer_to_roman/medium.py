@@ -8,11 +8,11 @@ class Solution(object):
         symbols = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"]
 
         roman = []
-        for val, sym in zip(values,symbols):
-            while num >= val:
-                roman.append(sym)
-                num -= val
-        return ''.join(roman)
+        for val, sym in zip(values, symbols):
+          while num >= val:
+            num -= val
+            roman.append(sym)
+        return "".join(roman)
 
 
 num = 3749  
