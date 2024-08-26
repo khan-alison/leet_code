@@ -19,8 +19,8 @@ class Solution:
 
             result = result * 10 + int(s[index])
 
-            if result > (2**31 -1):
-              return -2**31 if sign == -1 else 2**31 -1
+            if result > (2**31 - 1):
+                return -2**31 if sign == -1 else 2**31 - 1
             index += 1
         return result * sign
 
@@ -51,7 +51,7 @@ class Solution:
 
 
 s = "21474836460"
-s ="   -042"
+s = "   -042"
 solution = Solution()
 result = solution.myAtoi(s)
 print(result)
